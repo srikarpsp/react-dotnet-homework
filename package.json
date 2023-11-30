@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "dev": "concurrently \"cd frontend && npm run dev\" \"dotnet run\""
+  },
   "devDependencies": {
     "concurrently": "^8.2.2"
   }

@@ -1,11 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-
-type City = {
-    guid: string;
-    city: string;
-    temperature: number;
-    conditions: string;
-};
+import { City } from "../types";
 
 export default function Root() {
     const { cities } = useLoaderData() as { cities: City[] };

@@ -46,4 +46,6 @@ public record Weather
 
     public string Conditions { get; set; }
     public string Temperature { get; set; }
+
+    public string Guid { get; set; } = System.Guid.NewGuid().ToString();
 }

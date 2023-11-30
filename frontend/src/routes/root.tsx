@@ -9,7 +9,7 @@ export default function Root() {
      { cities.length ? (
         <ul>
             { cities.map((city: any) => (
-                <li key={city}>{city.city}: {city.temperature} and {city.conditions}</li>
+                <li key={city.guid}>{city.city}: {city.temperature} and {city.conditions}</li>
             )) }
         </ul>
         ) : (

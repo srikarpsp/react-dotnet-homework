@@ -2,14 +2,14 @@ import { CloudIcon } from '@heroicons/react/24/outline';
 import { CityType } from '../types';
 
 export default function City({ city }: { city: CityType }): JSX.Element {
-    city.icon = CloudIcon;
+    const Icon = CloudIcon;
 
     return <div
             className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6"
           >
             <dt>
               <div className="absolute rounded-md bg-indigo-500 p-3">
-                <city.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                <Icon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
               <p className="ml-16 truncate text-sm font-medium text-gray-500">{city.city}</p>
             </dt>

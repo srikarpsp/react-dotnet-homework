@@ -24,16 +24,20 @@
   // More info: https://containers.dev/implementors/json_reference/#port-attributes
   "portsAttributes": {
     "5000": {
-      "label": "Hello Remote World",
-      "onAutoForward": "openBrowser"
+      "label": "Dotnet Dev Server",
+      "onAutoForward": "silent"
     },
     "5001": {
       "protocol": "https"
+    },
+    "5173": {
+      "label": "Vite Dev Server",
+      "onAutoForward": "openBrowser"
     }
   },
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
-  "forwardPorts": [5000],
+  "forwardPorts": [5000, 5001, 5173],
 
   // Use 'postCreateCommand' to run commands after the container is created.
   // "postCreateCommand": "dotnet restore",

@@ -7,8 +7,15 @@ app.MapGet("/", () => "OK");
 
 app.MapGet("/{cityName}/weather", GetWeatherByCity);
 
-app.Run();
+app.MapGet("/cities/", GetCities);
 
+IEnumerable<Weather> GetCities()
+{
+    var cities = new List<string> { "New York", "London", "Tokyo", "Edmonton" };
+    return cities.Select(city => new Weather(city));
+}
+
+app.Run();
 
 Weather GetWeatherByCity(string cityName)
 {

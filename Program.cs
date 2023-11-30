@@ -1,3 +1,5 @@
+
+
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
@@ -7,13 +9,9 @@ app.MapGet("/", () => "OK");
 
 app.MapGet("/{cityName}/weather", GetWeatherByCity);
 
-app.MapGet("/cities/", GetCities);
+var cities = new List<string> { "New York", "London", "Tokyo", "Edmonton" }.Select(city => new Weather(city)).ToList();
 
-IEnumerable<Weather> GetCities()
-{
-    var cities = new List<string> { "New York", "London", "Tokyo", "Edmonton" };
-    return cities.Select(city => new Weather(city));
-}
+app.MapGet("/cities/", () => cities);
 
 app.Run();
 

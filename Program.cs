@@ -3,11 +3,9 @@ var app = builder.Build();
 
 app.Urls.Add("http://localhost:5000");
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "OK");
 
-app.MapGet("/api/", () => "OK");
-
-app.MapGet("api/{cityName}/weather", GetWeatherByCity);
+app.MapGet("/{cityName}/weather", GetWeatherByCity);
 
 app.Run();
 

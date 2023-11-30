@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "concurrently \"cd frontend && npm run dev\" \"dotnet run\""
+    "dev": "concurrently \"cd frontend && npm run dev\" \"dotnet watch run -- --project vscode-remote-try-dotnet.csproj\""
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

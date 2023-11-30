@@ -1,14 +1,21 @@
 import { useLoaderData } from "react-router-dom";
 
+type City = {
+    guid: string;
+    city: string;
+    temperature: number;
+    conditions: string;
+};
+
 export default function Root() {
-    const { cities } = useLoaderData();
+    const { cities } = useLoaderData() as { cities: City[] };
     console.log("cities from loader hook = ", cities);
 
     return <>
      <h1>Hello from Root!</h1>
      { cities.length ? (
         <ul>
-            { cities.map((city: any) => (
+            { cities.map((city) => (
                 <li key={city.guid}>{city.city}: {city.temperature} and {city.conditions}</li>
             )) }
         </ul>

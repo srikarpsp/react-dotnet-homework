@@ -1,9 +1,9 @@
 import { NavLink, useLoaderData } from "react-router-dom";
-import { City } from "../types";
+import { CityType } from "../types";
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-
+import City from "../components/City";
 
 const user = {
   name: 'Tom Cook',
@@ -26,7 +26,7 @@ function classNames(...classes) {
 }
 
 export default function Root() {
-    const { cities } = useLoaderData() as { cities: City[] };
+    const { cities } = useLoaderData() as { cities: CityType[] };
     console.log("cities from loader hook = ", cities);
 
     return <>
@@ -195,12 +195,9 @@ export default function Root() {
         <main className="-mt-32">
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
-                <h1>Hello from Root!</h1>
                 { cities.length ? (
                     <ul>
-                        { cities.map((city) => (
-                            <li key={city.guid}>{city.city}: {city.temperature} and {city.conditions}</li>
-                        )) }
+                        { cities.map((city) => <City city={city} key={city.guid} />) }
                     </ul>
                     ) : (
                         <p>No cities found.</p>

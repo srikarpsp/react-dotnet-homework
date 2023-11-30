@@ -1,4 +1,4 @@
-export type City = {
+export type CityType = {
     guid: string;
     city: string;
     temperature: number;

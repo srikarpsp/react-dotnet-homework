@@ -1,4 +1,5 @@
 
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -9,9 +10,18 @@ app.MapGet("/", () => "OK");
 
 app.MapGet("/{cityName}/weather", GetWeatherByCity);
 
-var cities = new List<string> { "New York", "London", "Tokyo", "Edmonton" }.Select(city => new Weather(city)).ToList();
+// Cities API
+var cities = new List<string> { "New York", "London", "Tokyo", "Grande Prairie" }.Select(city => new Weather(city)).ToList();
 
 app.MapGet("/cities/", () => cities);
+app.MapPost("/cities/", async (HttpContext context) =>
+{
+    var requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+    var weather = JsonSerializer.Deserialize<Weather>(requestBody, options);
+    cities.Add(new Weather(weather.City));
+    return Results.Ok("City added successfully.");
+});
 
 app.Run();
 

@@ -1,6 +1,7 @@
-export type CityType = {
+export type ContactType = {
     guid: string;
-    city: string;
-    temperature: number;
-    conditions: string;
+    name: string;
+    email: number;
+    phone: string;
+
 };

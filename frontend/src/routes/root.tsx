@@ -23,8 +23,8 @@ const userNavigation = [
 ]
 
 export default function Root() {
-    const { cities } = useLoaderData() as { cities: ContactType[] };
-    console.log("cities from loader hook = ", cities);
+    const { cities: contacts } = useLoaderData() as { cities: ContactType[] };
+    console.log("contacts from loader hook = ", contacts);
 
     return <>
 
@@ -193,9 +193,9 @@ export default function Root() {
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
               <Outlet />
-                { cities.length ? (
+                { contacts.length ? (
                     <ul className="flex flex-col lg:grid grid-cols-3 gap-4">
-                        { cities.map((contact) => <Contact contact={contact} key={contact.guid} />) }
+                        { contacts.map((contact) => <Contact contact={contact} key={contact.guid} />) }
                     </ul>
                     ) : (
                         <p>No contacts found.</p>

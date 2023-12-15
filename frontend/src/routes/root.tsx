@@ -1,9 +1,9 @@
 import { NavLink, useLoaderData } from "react-router-dom";
-import { CityType } from "../types";
+import { ContactType } from "../types";
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import City from "../components/City";
+import Contact from "../components/Contact";
 import { classNames } from "../utils";
 
 const user = {
@@ -13,7 +13,7 @@ const user = {
     'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-  { name: 'Weather', href: '/', current: true },
+  { name: 'Contacts', href: '/', current: true },
   { name: 'Busted', href: '/boop', current: false },
 ]
 const userNavigation = [
@@ -23,7 +23,7 @@ const userNavigation = [
 ]
 
 export default function Root() {
-    const { cities } = useLoaderData() as { cities: CityType[] };
+    const { cities } = useLoaderData() as { cities: ContactType[] };
     console.log("cities from loader hook = ", cities);
 
     return <>
@@ -184,7 +184,7 @@ export default function Root() {
           </Disclosure>
            <header className="py-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-              <h1 className="text-3xl font-bold tracking-tight text-white">Weather</h1>
+              <h1 className="text-3xl font-bold tracking-tight text-white">Contacts</h1>
             </div>
           </header>
         </div>
@@ -194,10 +194,10 @@ export default function Root() {
             <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
                 { cities.length ? (
                     <ul className="flex flex-col lg:grid grid-cols-3 gap-4">
-                        { cities.map((city) => <City city={city} key={city.guid} />) }
+                        { cities.map((contact) => <Contact contact={contact} key={contact.guid} />) }
                     </ul>
                     ) : (
-                        <p>No cities found.</p>
+                        <p>No contacts found.</p>
                     )
                 }
             </div>
@@ -208,7 +208,7 @@ export default function Root() {
 }
 
 export async function loader() {
-    const cities = await fetch('/api/cities').then(res => res.json());
-    console.log("loaded these cities = ", cities);
-    return { cities };
+    const contacts = await fetch('/api/contacts').then(res => res.json());
+    console.log("loaded the contacts = ", contacts);
+    return { cities: contacts };
 }

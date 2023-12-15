@@ -22,6 +22,16 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 
+function Index({contacts}: {contacts: ContactType[]} ) {
+  return contacts.length ? (
+    <ul className="flex flex-col lg:grid grid-cols-3 gap-4">
+        { contacts.map((contact) => <Contact contact={contact} key={contact.guid} />) }
+    </ul>
+    ) : (
+        <p>No contacts found.</p>
+    );
+}
+
 export default function Root() {
     const { cities: contacts } = useLoaderData() as { cities: ContactType[] };
     console.log("contacts from loader hook = ", contacts);
@@ -193,14 +203,7 @@ export default function Root() {
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
               <Outlet />
-                { contacts.length ? (
-                    <ul className="flex flex-col lg:grid grid-cols-3 gap-4">
-                        { contacts.map((contact) => <Contact contact={contact} key={contact.guid} />) }
-                    </ul>
-                    ) : (
-                        <p>No contacts found.</p>
-                    )
-                }
+              <Index contacts={contacts} />
             </div>
           </div>
         </main>

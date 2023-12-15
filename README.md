@@ -19,6 +19,14 @@ Here are some changes you can try making to this app:
 - Try adding a new propertly to the City class.
 - Add a new route to the frontend.
 
+## Connecting to SQL Server
 
+This development environment runs MS SQL Server 2022 in a container. You can find connection details in the `devcontainer.json` file. To connect to the database, you can use the following command:
+
+```bash
+sqlcmd -S localhost -U sa -P 'P@ssw0rd'
+```
+
+Learn more about the SQL Server container [here](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver16&tabs=ubuntu2204#connect-locally).
 
 Happy coding!

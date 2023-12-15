@@ -11,6 +11,7 @@ app.MapGet("/", () => "OK");
 var contacts = new List<string> { "Bob", "Jane", "Mike" }.Select(name => new Contact(name)).ToList();
 
 app.MapGet("/contacts/", () => contacts);
+app.MapGet("/contacts/{guid}", GetContactByGuid);
 app.MapPost("/contacts/", async (HttpContext context) =>
 {
     var requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
@@ -21,6 +22,11 @@ app.MapPost("/contacts/", async (HttpContext context) =>
 });
 
 app.Run();
+
+Contact GetContactByGuid(string guid)
+{
+    return contacts.FirstOrDefault(c => c.Guid == guid);
+}
 
 public record Contact
 {
@@ -41,10 +47,10 @@ public record Contact
     }
 
     public string Name { get; set; }
-    public string? Email { get; set; }
+    public string? Email { get; set; } = "email@demo.com";
     public string? Phone { get; set; } = "1234567890";
-    public string? Avatar { get; set; }
-    public string? Twitter { get; set; }
+    public string? Avatar { get; set; } = "/avatars/headshot_1.png";
+    public string? Twitter { get; set; } = "TwitterHandle";
     public string? Notes { get; set; }
     public string Guid { get; set; } = System.Guid.NewGuid().ToString();
 }

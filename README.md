@@ -16,7 +16,7 @@ To start development, follow these steps:
 Here are some changes you can try making to this app:
 
 - Make a change to `Program.cs` or `root.tsx` and see how the app is reloaded.
-- Try adding a new propertly to the City class.
+- Try adding a new property to the Contact class.
 - Add a new route to the frontend.
 
 ## Connecting to SQL Server

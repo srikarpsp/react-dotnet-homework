@@ -16,7 +16,7 @@ app.MapPost("/contacts/", async (HttpContext context) =>
     var requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
     var Contact = JsonSerializer.Deserialize<Contact>(requestBody, options);
-    contacts.Add(new Contact(Contact.Name, Contact.Email, Contact.Phone));
+    contacts.Add(new Contact(Contact.Name, Contact.Email, Contact.Phone, Contact.Avatar, Contact.Twitter, Contact.Notes));
     return Results.Ok("Contact added successfully.");
 });
 
@@ -28,18 +28,23 @@ public record Contact
     {
         Name = name;
         Email = $"{name.ToLower()}@test.com";
-        Phone = "1234567890";
     }
 
-    public Contact(string name, string email, string phone)
+    public Contact(string name, string email, string phone, string avatar, string twitter, string notes)
     {
         Name = name;
         Email = email;
         Phone = phone;
+        Avatar = avatar;
+        Twitter = twitter;
+        Notes = notes;
     }
 
     public string Name { get; set; }
     public string? Email { get; set; }
-    public string? Phone { get; set; }
+    public string? Phone { get; set; } = "1234567890";
+    public string? Avatar { get; set; }
+    public string? Twitter { get; set; }
+    public string? Notes { get; set; }
     public string Guid { get; set; } = System.Guid.NewGuid().ToString();
 }

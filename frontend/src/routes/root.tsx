@@ -1,9 +1,7 @@
-import { NavLink, Outlet, useLoaderData } from "react-router-dom";
-import { ContactType } from "../types";
+import { NavLink, Outlet } from "react-router-dom";
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import Contact from "../components/Contact";
 import { classNames } from "../utils";
 
 const user = {
@@ -22,20 +20,7 @@ const userNavigation = [
   { name: 'Sign out', href: '#' },
 ]
 
-function Index({contacts}: {contacts: ContactType[]} ) {
-  return contacts.length ? (
-    <ul className="flex flex-col lg:grid grid-cols-3 gap-4">
-        { contacts.map((contact) => <Contact contact={contact} key={contact.guid} />) }
-    </ul>
-    ) : (
-        <p>No contacts found.</p>
-    );
-}
-
 export default function Root() {
-    const { cities: contacts } = useLoaderData() as { cities: ContactType[] };
-    console.log("contacts from loader hook = ", contacts);
-
     return <>
 
     <div className="min-h-full">
@@ -203,16 +188,9 @@ export default function Root() {
           <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
             <div className="rounded-lg bg-white px-5 py-6 shadow sm:px-6">
               <Outlet />
-              <Index contacts={contacts} />
             </div>
           </div>
         </main>
       </div>
     </>
-}
-
-export async function loader() {
-    const contacts = await fetch('/api/contacts').then(res => res.json());
-    console.log("loaded the contacts = ", contacts);
-    return { cities: contacts };
 }

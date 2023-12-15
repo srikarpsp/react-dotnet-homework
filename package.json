@@ -1,8 +1,9 @@
 {
   "scripts": {
-    "dev": "concurrently \"cd frontend && npm run dev\" \"dotnet watch run -- --project vscode-remote-try-dotnet.csproj\""
+    "dev": "concurrently \"cd frontend && wait-on http-get://localhost:5000/ && npm run dev\" \"dotnet watch run -- --project vscode-remote-try-dotnet.csproj\""
   },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "concurrently": "^8.2.2",
+    "wait-on": "^7.2.0"
   }
 }

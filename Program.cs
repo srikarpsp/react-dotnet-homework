@@ -7,44 +7,39 @@ app.Urls.Add("http://localhost:5000");
 
 app.MapGet("/", () => "OK");
 
-app.MapGet("/{cityName}/weather", GetWeatherByCity);
+// Contacts API
+var contacts = new List<string> { "Bob", "Jane", "Mike" }.Select(name => new Contact(name)).ToList();
 
-// Cities API
-var cities = new List<string> { "New York", "London", "Tokyo", "Grande Prairie" }.Select(city => new Weather(city)).ToList();
-
-app.MapGet("/cities/", () => cities);
-app.MapPost("/cities/", async (HttpContext context) =>
+app.MapGet("/contacts/", () => contacts);
+app.MapPost("/contacts/", async (HttpContext context) =>
 {
     var requestBody = await new StreamReader(context.Request.Body).ReadToEndAsync();
     var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
-    var weather = JsonSerializer.Deserialize<Weather>(requestBody, options);
-    cities.Add(new Weather(weather.City));
-    return Results.Ok("City added successfully.");
+    var Contact = JsonSerializer.Deserialize<Contact>(requestBody, options);
+    contacts.Add(new Contact(Contact.Name, Contact.Email, Contact.Phone));
+    return Results.Ok("Contact added successfully.");
 });
 
 app.Run();
 
-Weather GetWeatherByCity(string cityName)
+public record Contact
 {
-    app.Logger.LogInformation($"Weather requested for {cityName}.");
-    var weather = new Weather(cityName);
-    return weather;
-}
-
-public record Weather
-{
-    public string City { get; set; }
-
-    public Weather(string city)
+    public Contact(string name)
     {
-        City = city;
-        Conditions = "Cloudy";
-        // Temperature here is in celsius degrees, hence the 0-40 range.
-        Temperature = new Random().Next(0, 40).ToString();
+        Name = name;
+        Email = $"{name.ToLower()}@test.com";
+        Phone = "1234567890";
     }
 
-    public string Conditions { get; set; }
-    public string Temperature { get; set; }
+    public Contact(string name, string email, string phone)
+    {
+        Name = name;
+        Email = email;
+        Phone = phone;
+    }
 
+    public string Name { get; set; }
+    public string? Email { get; set; }
+    public string? Phone { get; set; }
     public string Guid { get; set; } = System.Guid.NewGuid().ToString();
 }

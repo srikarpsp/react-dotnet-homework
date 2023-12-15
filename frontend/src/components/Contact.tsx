@@ -11,9 +11,9 @@ export default function Contact({ contact }: { contact: ContactType }): JSX.Elem
               <div className="absolute rounded-md bg-indigo-500 p-3">
                 <Icon className="h-6 w-6 text-white" aria-hidden="true" />
               </div>
-              <p className="ml-16 truncate text-sm font-medium text-gray-500">{contact.phone}</p>
+              <p className="ml-16 truncate text-sm font-medium text-gray-500">@{contact.twitter}</p>
             </dt>
-            <dd className="ml-16 flex items-baseline pb-6 sm:pb-7">
+            <dd className="ml-16 flex flex-col items-baseline pb-6 sm:pb-7">
               <p className="text-2xl font-semibold text-gray-900">{contact.name}</p>
               <p className="ml-2">
                 {contact.email}

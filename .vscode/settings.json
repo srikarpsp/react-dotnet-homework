@@ -4,6 +4,7 @@
         "dacpac",
         "devcontainer",
         "devcontainers",
-        "dotnettools"
+        "dotnettools",
+        "headshot"
     ]
 }

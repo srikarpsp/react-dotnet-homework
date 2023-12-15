@@ -1,7 +1,7 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
-// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet
+// README at: https://github.com/devcontainers/templates/tree/main/src/dotnet-mssql
 {
-  "name": "C# (.NET)",
+	"name": "C# (.NET) and MS SQL",
   // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "dockerComposeFile": "./docker-compose.yml",
   "service": "devcontainer",

@@ -2,17 +2,18 @@ import { Form } from "react-router-dom";
 import { ContactType } from "../types";
 
 export default function Contact() {
-  const contact = {
-    first: "Your",
-    last: "Name",
-    avatar: "https://placekitten.com/g/200/200",
+  const contact: ContactType = {
+    name: "Bob Tester",
+    avatar: "/avatars/headshot_1.png",
+    email: "bob@test.com",
+    phone: "1234567890",
     twitter: "your_handle",
     notes: "Some notes",
-    favorite: true,
+    guid: "1234"
   };
 
   return (
-    <div id="contact">
+    <div id="contact" className="flex space-x-5">
       <div>
         <img
           key={contact.avatar}
@@ -21,19 +22,18 @@ export default function Contact() {
       </div>
 
       <div>
-        <h1>
-          {contact.first || contact.last ? (
+        <h1 className="text-lg font-bold">
+          {contact.name ? (
             <>
-              {contact.first} {contact.last}
+              {contact.name}
             </>
           ) : (
             <i>No Name</i>
           )}{" "}
-          <Favorite contact={contact} />
         </h1>
 
         {contact.twitter && (
-          <p>
+          <p className="italic">
             <a
               target="_blank"
               href={`https://twitter.com/${contact.twitter}`}
@@ -45,7 +45,7 @@ export default function Contact() {
 
         {contact.notes && <p>{contact.notes}</p>}
 
-        <div>
+        <div className="flex space-x-2 rounded-md bg-cyan-100 p-2 mt-2">
           <Form action="edit">
             <button type="submit">Edit</button>
           </Form>
@@ -67,26 +67,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  );
-}
-
-function Favorite({ contact } : { contact: ContactType}) {
-  // yes, this is a `let` for later
-  let favorite = contact.favorite;
-
-  return (
-    <Form method="post">
-      <button
-        name="favorite"
-        value={favorite ? "false" : "true"}
-        aria-label={
-          favorite
-            ? "Remove from favorites"
-            : "Add to favorites"
-        }
-      >
-        {favorite ? "★" : "☆"}
-      </button>
-    </Form>
   );
 }

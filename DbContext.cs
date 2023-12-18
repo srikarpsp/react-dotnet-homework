@@ -26,4 +26,13 @@ public class ContactContext : DbContext
 
         optionsBuilder.UseSqlServer(connection);
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Contact>().HasData(
+            new Contact("Bob", 1),
+            new Contact("Jane", 2),
+            new Contact("Mike", 3)
+        );
+    }
 }

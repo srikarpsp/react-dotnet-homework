@@ -50,7 +50,7 @@ then
     done
 fi
 
-if [ $dacpac == "true" ] 
+if [ $dacpac == "true" ]
 then
     for f in $dacpath/*
     do
@@ -62,3 +62,7 @@ then
         fi
     done
 fi
+
+# Install Entity Framework Core tools
+dotnet tool install --global dotnet-ef
+dotnet ef database update

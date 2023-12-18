@@ -24,7 +24,7 @@ Here are some changes you can try making to this app:
 This development environment runs MS SQL Server 2022 in a container. You can find connection details in the `devcontainer.json` file. To connect to the database, you can use the following command:
 
 ```bash
-sqlcmd -S localhost -U sa -P 'P@ssw0rd'
+sqlcmd -S localhost -U sa -d ApplicationDB -P 'P@ssw0rd'
 ```
 
 Learn more about the SQL Server container [here](https://learn.microsoft.com/en-us/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver16&tabs=ubuntu2204#connect-locally).

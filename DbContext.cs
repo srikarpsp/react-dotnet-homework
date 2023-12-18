@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using System.Data.SqlClient;
+using System.Net;
 
 public class ContactContext : DbContext
 {
@@ -13,6 +15,15 @@ public class ContactContext : DbContext
            .AddJsonFile("appsettings.json")
            .Build();
 
-        optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
+        var connection = new SqlConnection(connectionString);
+
+        connection.ConnectionString = connectionString;
+
+        // Bypass SSL certificate validation
+        ServicePointManager.ServerCertificateValidationCallback =
+            (sender, certificate, chain, sslPolicyErrors) => true;
+
+        optionsBuilder.UseSqlServer(connection);
     }
 }

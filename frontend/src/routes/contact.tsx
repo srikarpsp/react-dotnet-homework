@@ -82,9 +82,9 @@ export default function Contact() {
   );
 }
 
-export async function loader({ params }: { params: { contactGuid: string } }) {
+export async function loader({ params }: { params: { contactId: string } }) {
     console.log("params = ", params);
-    const contact = await fetch(`/api/contacts/${params.contactGuid}`).then(res => res.json());
+    const contact = await fetch(`/api/contacts/${params.contactId}`).then(res => res.json());
     console.log("loaded the contact = ", contact);
 
     return { contact };

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 export default function Contact({ contact }: { contact: ContactType }): JSX.Element {
     const Icon = UserIcon;
 
-    return <Link to={`contacts/${contact.guid}`}>
+    return <Link to={`contacts/${contact.id}`}>
             <div
               className="relative overflow-hidden rounded-lg bg-white px-4 pb-12 pt-5 shadow sm:px-6 sm:pt-6"
             >

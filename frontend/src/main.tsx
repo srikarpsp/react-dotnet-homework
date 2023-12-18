@@ -22,7 +22,7 @@ const router = createBrowserRouter([
         element: <Index />,
       },
       {
-        path: "contacts/:contactGuid",
+        path: "contacts/:contactId",
         loader: contactLoader,
         element: <Contact />,
       }

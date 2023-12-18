@@ -9,7 +9,7 @@ export default function Index() {
 
   return contacts.length ? (
     <ul className="flex flex-col lg:grid grid-cols-3 gap-4">
-        { contacts.map((contact) => <Contact contact={contact} key={contact.guid} />) }
+        { contacts.map((contact) => <Contact contact={contact} key={contact.id} />) }
     </ul>
     ) : (
         <p>No contacts found.</p>

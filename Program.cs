@@ -8,7 +8,9 @@ app.Urls.Add("http://localhost:5000");
 app.MapGet("/", () => "OK");
 
 // Contacts API
-var contacts = new List<string> { "Bob", "Jane", "Mike" }.Select(name => new Contact(name)).ToList();
+var contacts = new List<string> { "Bob", "Jane", "Mike" }
+    .Select((name, index) => new Contact(name, index + 1))
+    .ToList();
 
 app.MapGet("/contacts/", () => contacts);
 app.MapGet("/contacts/{id}", GetContactById);
@@ -30,9 +32,10 @@ Contact GetContactById(int id)
 
 public record Contact
 {
-    public Contact(string name)
+    public Contact(string name, int id)
     {
         Name = name;
+        Id = id;
         Email = $"{name.ToLower()}@test.com";
     }
 

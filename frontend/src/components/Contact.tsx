@@ -20,13 +20,6 @@ export default function Contact({ contact }: { contact: ContactType }): JSX.Elem
                 <p className="ml-2">
                   {contact.email}
                 </p>
-                <div className="absolute inset-x-0 bottom-0 bg-gray-50 px-4 py-4 sm:px-6">
-                  <div className="text-sm">
-                    <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                      Delete
-                    </a>
-                  </div>
-                </div>
               </dd>
             </div>
            </Link>

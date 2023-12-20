@@ -7,8 +7,11 @@ import {
 import './index.css'
 import Root from "./routes/root";
 import ErrorPage from './error-page';
-import Contact, { loader as contactLoader } from './routes/contact';
+
+// Import routes and loaders
 import Index, { loader as indexLoader } from './routes';
+import Contact, { loader as contactLoader } from './routes/contact';
+import EditContact from './routes/edit';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +28,11 @@ const router = createBrowserRouter([
         path: "contacts/:contactId",
         loader: contactLoader,
         element: <Contact />,
+      },
+      {
+        path: "contacts/:contactId/edit",
+        loader: contactLoader,
+        element: <EditContact />,
       }
     ],
   },

@@ -24,6 +24,10 @@ In this app we're using the following technologies:
 - [Tailwind CSS](https://tailwindcss.com/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 
+## Project Structure
+
+TODO
+
 ## Next Steps
 
 Once you've got the app up and running, please take up to 3 hours to explore the codebase and make some changes. There are some suggestions below.

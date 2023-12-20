@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, redirect, useLoaderData } from "react-router-dom";
 import { ContactType } from "../types";
 
 export default function EditContact() {
@@ -151,4 +151,24 @@ export default function EditContact() {
       </div>
     </Form>
   );
+}
+
+interface ActionParams {
+  contactId: string;
+}
+
+export async function action({
+  params,
+  request,
+}: {
+  params: ActionParams;
+  request: Request;
+}) {
+  const formData = await request.formData();
+  const updates = Object.fromEntries(formData);
+
+  //   await updateContact(params.contactId, updates);
+  console.log("updates = ", updates);
+
+  return redirect(`/contacts/${params.contactId}`);
 }

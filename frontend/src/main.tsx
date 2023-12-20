@@ -1,17 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./index.css";
 import Root from "./routes/root";
-import ErrorPage from './error-page';
+import ErrorPage from "./error-page";
 
 // Import routes and loaders
-import Index, { loader as indexLoader } from './routes';
-import Contact, { loader as contactLoader } from './routes/contact';
-import EditContact from './routes/edit';
+import Index, { loader as indexLoader } from "./routes";
+import Contact, { loader as contactLoader } from "./routes/contact";
+import EditContact, { action as editAction } from "./routes/edit";
 
 const router = createBrowserRouter([
   {
@@ -32,8 +29,9 @@ const router = createBrowserRouter([
       {
         path: "contacts/:contactId/edit",
         loader: contactLoader,
+        action: editAction,
         element: <EditContact />,
-      }
+      },
     ],
   },
   {
@@ -42,8 +40,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <RouterProvider router={router} />
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);

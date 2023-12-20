@@ -1,25 +1,27 @@
 {
-    "cSpell.words": [
-        "appsettings",
-        "Codespace",
-        "Codespaces",
-        "csdevkit",
-        "dacpac",
-        "devcontainer",
-        "devcontainers",
-        "dotnettools",
-        "headshot",
-        "nvarchar",
-        "sqlcmd"
-    ],
-    "mssql.connections": [
-        {
-            "server": "localhost",
-            "database": "AllicationDB",
-            "authenticationType": "SqlLogin",
-            "user": "sa",
-            "password": "",
-            "savePassword": true
-        }
-    ]
+  "cSpell.words": [
+    "appsettings",
+    "Codespace",
+    "Codespaces",
+    "csdevkit",
+    "dacpac",
+    "devcontainer",
+    "devcontainers",
+    "dotnettools",
+    "headshot",
+    "janesmith",
+    "nvarchar",
+    "sqlcmd",
+    "tailwindcss"
+  ],
+  "mssql.connections": [
+    {
+      "server": "localhost",
+      "database": "AllicationDB",
+      "authenticationType": "SqlLogin",
+      "user": "sa",
+      "password": "",
+      "savePassword": true
+    }
+  ]
 }

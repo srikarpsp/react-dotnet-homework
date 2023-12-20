@@ -12,18 +12,18 @@ namespace vscode_remote_try_dotnet.Migrations
         {
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 1, "Bob" });
+                columns: new[] { "Id", "Name", "Email", "Phone", "Avatar", "Twitter", "Notes" },
+                values: new object[] { 1, "Bob", "bob@test.com", "123-456-7890", "/avatars/headshot_4.png", "BobBarker", "This is a note for Bob." });
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 2, "Jane" });
+                columns: new[] { "Id", "Name", "Email", "Phone", "Avatar", "Twitter", "Notes" },
+                values: new object[] { 2, "Jane", "jane@test.com", "123-456-7890", "/avatars/headshot_2.png", "JaneDoe", "This is a note for Jane." });
 
             migrationBuilder.InsertData(
                 table: "Contacts",
-                columns: new[] { "Id", "Name" },
-                values: new object[] { 3, "Mike" });
+                columns: new[] { "Id", "Name", "Email", "Phone", "Avatar", "Twitter", "Notes" },
+                values: new object[] { 3, "Mike", "mike@test.com", "123-456-7890", "/avatars/headshot_5.png", "MikeSmith", "This is a note for Mike." });
         }
 
         /// <inheritdoc />

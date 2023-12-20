@@ -4,6 +4,10 @@ using System.Net;
 
 public class ContactContext : DbContext
 {
+    public ContactContext(DbContextOptions<ContactContext> options)
+        : base(options)
+    {
+    }
     public DbSet<Contact> Contacts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

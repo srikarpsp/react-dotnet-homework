@@ -14,7 +14,7 @@ To start development, follow these steps:
 ## Trouble Shooting
 
 ### If you're unable to access the database
-Make sure that you can connect to the database on the command line. If you can't try rebuiding your container using the VS Code command, "Codespaces: Rebuild Container".
+Make sure that you can connect to the database on the command line. If you can't try re-building your container using the VS Code command, "Codespaces: Rebuild Container".
 
 If the database is available it's possible the migrations didn't run properly from the `postCreateCommand` in the `devcontainer.json` file. You can run the migrations manually by running the following commands:
 

@@ -9,6 +9,7 @@ To start development, follow these steps:
 1. Clone the repository.
 2. Open the repository in a Codespace on GitHub.
 3. Install the required dependencies by running `npm install` in the root directory and in `frontend`.
+4. Run database migrations by running `npm run db:migrate` in the root directory.
 4. Start the development server by running `npm run dev` in the root directory.
 
 ## Trouble Shooting

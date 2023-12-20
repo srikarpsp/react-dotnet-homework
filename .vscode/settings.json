@@ -11,5 +11,15 @@
         "headshot",
         "nvarchar",
         "sqlcmd"
+    ],
+    "mssql.connections": [
+        {
+            "server": "localhost",
+            "database": "AllicationDB",
+            "authenticationType": "SqlLogin",
+            "user": "sa",
+            "password": "",
+            "savePassword": true
+        }
     ]
 }

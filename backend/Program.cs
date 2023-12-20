@@ -31,4 +31,26 @@ app.MapPost("/contacts/", async (ContactContext context, HttpContext httpContext
     return Results.Ok("Contact added successfully.");
 });
 
+// Update a contact
+app.MapPost("/contacts/{id}", async (ContactContext context, HttpContext httpContext, int id) =>
+{
+    var requestBody = await new StreamReader(httpContext.Request.Body).ReadToEndAsync();
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+    var contact = JsonSerializer.Deserialize<Contact>(requestBody, options);
+    var contactToUpdate = context.Contacts.FirstOrDefault(c => c.Id == id);
+    if (contactToUpdate != null)
+    {
+        contactToUpdate.Name = contact.Name;
+        contactToUpdate.Email = contact.Email;
+        contactToUpdate.Phone = contact.Phone;
+        contactToUpdate.Avatar = contact.Avatar;
+        contactToUpdate.Twitter = contact.Twitter;
+        contactToUpdate.Notes = contact.Notes;
+
+        await context.SaveChangesAsync();
+        return Results.Ok("Contact updated successfully.");
+    }
+    return Results.NotFound("Contact not found.");
+});
+
 app.Run();

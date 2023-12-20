@@ -167,8 +167,15 @@ export async function action({
   const formData = await request.formData();
   const updates = Object.fromEntries(formData);
 
-  //   await updateContact(params.contactId, updates);
+  // post the json to the api /contacts/:contactId
   console.log("updates = ", updates);
+  await fetch(`/api/contacts/${params.contactId}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updates),
+  });
 
   return redirect(`/contacts/${params.contactId}`);
 }

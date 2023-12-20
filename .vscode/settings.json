@@ -1,12 +1,15 @@
 {
     "cSpell.words": [
         "appsettings",
+        "Codespace",
+        "Codespaces",
         "csdevkit",
         "dacpac",
         "devcontainer",
         "devcontainers",
         "dotnettools",
         "headshot",
-        "nvarchar"
+        "nvarchar",
+        "sqlcmd"
     ]
 }

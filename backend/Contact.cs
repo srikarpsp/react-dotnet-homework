@@ -1,5 +1,9 @@
 public record Contact
 {
+    public Contact()
+    {
+    }
+
     public Contact(string name, int id)
     {
         Name = name;

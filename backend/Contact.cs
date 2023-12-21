@@ -23,7 +23,7 @@ public record Contact
 
 
     public int Id { get; set; } // Primary key
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public string? Email { get; set; } = "email@demo.com";
     public string? Phone { get; set; } = "1234567890";
     public string? Avatar { get; set; } = "/avatars/headshot_1.png";

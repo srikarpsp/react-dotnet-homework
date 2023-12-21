@@ -26,7 +26,30 @@ In this app we're using the following technologies:
 
 ## Project Structure
 
-TODO
+The significant files and folders in this project are:
+
+```
+.
+├── frontend                # A React Router application powered by Vite
+│   ├── package.json        # npm dependencies and scripts
+|   ├── public              # static assets served without preprocessing
+|   ├── src
+|   |   ├── assets          # assets that are preprocessed by Vite
+|   |   ├── components      # React components
+|   |   ├── routes          # Routes exporting React components, loaders and actions mentioned in `main.tsx`
+|   |   ├── main.tsx        # The JS entry point for the application
+|   |   ├── types.ts        # Common TypeScript types not specific to one file
+|   |   ├── utils.ts        # Shared utility functions
+|   ├── index.html          # The HTML entry point for the application
+|   ├── tailwind.config.js  # Tailwind configuration
+├── backend                 # The dotnet backend API application
+│   ├── Migrations          # Database migrations to initialize and update the database
+│   ├── appsettings.json    # Configuration for the application (with Development and HttpsDevelopment overrides)
+│   ├── Contact.cs          # The Contact model
+│   ├── DbContext.cs        # The database context
+│   ├── Program.cs          # The entry point for the application
+├── README.md               # This file!
+```
 
 ## Next Steps
 

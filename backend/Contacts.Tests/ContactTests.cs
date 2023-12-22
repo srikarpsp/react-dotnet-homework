@@ -8,7 +8,7 @@ public class ContactTests
         var contact = new Contact("Test Name", 1);
         Assert.Equal("Test Name", contact.Name);
         Assert.Equal(1, contact.Id);
-        Assert.Equal("testname@test.com", contact.Email);
+        Assert.Equal("test_name@test.com", contact.Email);
     }
 
     [Fact]

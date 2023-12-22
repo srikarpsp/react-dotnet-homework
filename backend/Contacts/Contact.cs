@@ -8,7 +8,7 @@ public record Contact
     {
         Name = name;
         Id = id;
-        Email = $"{name.ToLower()}@test.com";
+        Email = $"{Name.Replace(" ", "_").ToLower()}@test.com";
     }
 
     public Contact(string name, string email, string phone, string avatar, string twitter, string notes)

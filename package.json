@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "concurrently \"cd frontend && wait-on http-get://localhost:5000/ && npm run dev\" \"cd backend/Contacts && dotnet watch run -- --project Contacts.csproj\"",
-    "db:migrate": "cd backend && dotnet ef database update"
+    "db:migrate": "cd backend/Contacts && dotnet ef database update"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",

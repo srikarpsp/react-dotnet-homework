@@ -41,7 +41,12 @@ your preferred development environment configured. We'll discuss your changes in
 1. Get the app up and running and add a screenshot of the homepage to the [Welcome Section](#welcome) of this README.
 2. Add the ability to create a new contact.
 3. Add a new field (of your choosing) to the contact model and update the UI.
-4. Review the unit tests for the backend and make a change to improve them. Explain your choice in the commit message.
+4. Add the ability to delete a contact.
+5. Review the unit tests for the backend and make a change to improve them. Explain your choice in the commit message.
+6. Consider the user experience of the app. Make a change to improve it and explain your choice in the commit message.
+7. Imagine you're adding integrated tests using a tool like Cypress or Playwright. What would you test? What would you
+   not test? Why? Add a new `npm run integrated-test` script to the frontend `package.json` file update this README
+   explaining your choice and how to run the tests.
 
 ## Technologies Used
 
@@ -54,6 +59,7 @@ In this app we're using the following technologies:
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- [Vite](https://vitejs.dev/)
 
 ## Project Structure
 

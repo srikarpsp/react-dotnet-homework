@@ -11,9 +11,11 @@
     "Hbid",
     "headshot",
     "janesmith",
+    "johndoe",
     "nvarchar",
     "sqlcmd",
     "tailwindcss",
+    "testid",
     "Xunit"
   ],
   "mssql.connections": [

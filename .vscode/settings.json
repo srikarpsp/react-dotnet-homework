@@ -8,11 +8,13 @@
     "devcontainer",
     "devcontainers",
     "dotnettools",
+    "Hbid",
     "headshot",
     "janesmith",
     "nvarchar",
     "sqlcmd",
-    "tailwindcss"
+    "tailwindcss",
+    "Xunit"
   ],
   "mssql.connections": [
     {

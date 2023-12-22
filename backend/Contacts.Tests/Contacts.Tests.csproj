@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contacts\vscode-remote-try-dotnet.csproj" />
+    <ProjectReference Include="..\Contacts\Contacts.csproj" />
   </ItemGroup>
 
 </Project>

@@ -46,6 +46,7 @@ app.MapPost("/contacts/{id}", async (ContactContext context, HttpContext httpCon
         contactToUpdate.Avatar = contact.Avatar;
         contactToUpdate.Twitter = contact.Twitter;
         contactToUpdate.Notes = contact.Notes;
+        contactToUpdate.Address = contact.Address;
 
         await context.SaveChangesAsync();
         return Results.Ok("Contact updated successfully.");

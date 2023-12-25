@@ -11,7 +11,7 @@ public record Contact
         Email = $"{Name.Replace(" ", "_").ToLower()}@test.com";
     }
 
-    public Contact(string name, string email, string phone, string avatar, string twitter, string notes)
+    public Contact(string name, string email, string phone, string avatar, string twitter, string notes, string address)
     {
         Name = name;
         Email = email;
@@ -19,6 +19,7 @@ public record Contact
         Avatar = avatar;
         Twitter = twitter;
         Notes = notes;
+        Address = address;
     }
 
 
@@ -29,4 +30,5 @@ public record Contact
     public string? Avatar { get; set; } = "/avatars/headshot_1.png";
     public string? Twitter { get; set; } = "TwitterHandle";
     public string? Notes { get; set; }
+    public string? Address {get; set;} = "Address";
 }

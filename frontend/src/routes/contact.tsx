@@ -57,6 +57,8 @@ export default function Contact() {
 
         {contact.notes && <p>{contact.notes}</p>}
 
+        {contact.address && <p>{contact.address}</p>}
+
         <div className="flex space-x-2 rounded-md bg-cyan-100 p-2 mt-2">
           <Form action="edit">
             <button type="submit">Edit</button>

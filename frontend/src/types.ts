@@ -6,4 +6,5 @@ export type ContactType = {
     email: string;
     phone: string;
     notes: string;
+    address: string;
 };

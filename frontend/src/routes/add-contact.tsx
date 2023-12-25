@@ -1,8 +1,6 @@
-import { Form, redirect, useLoaderData } from "react-router-dom";
-import { ContactType } from "../types";
+import { Form, redirect } from "react-router-dom";
 
-export default function EditContact() {
-  const { contact } = useLoaderData() as { contact: ContactType };
+export default function AddContact() {
 
   return (
     <Form method="post" id="contact-form">
@@ -22,7 +20,6 @@ export default function EditContact() {
                 id="name"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="Name"
-                defaultValue={contact.name}
               />
             </div>
           </div>
@@ -43,7 +40,6 @@ export default function EditContact() {
               autoComplete="email"
               placeholder="email@example.com"
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              defaultValue={contact.email}
             />
           </div>
         </div>
@@ -63,7 +59,6 @@ export default function EditContact() {
               autoComplete="tel"
               placeholder="(123) 456-7890"
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              defaultValue={contact.phone}
             />
           </div>
         </div>
@@ -86,7 +81,6 @@ export default function EditContact() {
                 id="twitter"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="janesmith"
-                defaultValue={contact.twitter}
               />
             </div>
           </div>
@@ -107,7 +101,6 @@ export default function EditContact() {
                 id="avatar"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="/avatar.jpg"
-                defaultValue={contact.avatar}
               />
             </div>
           </div>
@@ -128,7 +121,6 @@ export default function EditContact() {
                 id="address"
                 className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                 placeholder="171 Delmonte Crescent, Etobicoke"
-                defaultValue={contact.address}
               />
             </div>
           </div>
@@ -147,7 +139,6 @@ export default function EditContact() {
               name="notes"
               rows={3}
               className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-              defaultValue={contact.notes}
             />
           </div>
           <p className="mt-3 text-sm leading-6 text-gray-600">
@@ -167,7 +158,7 @@ export default function EditContact() {
           type="submit"
           className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
         >
-          Save
+          Add Contact
         </button>
       </div>
     </Form>
@@ -186,17 +177,17 @@ export async function action({
   request: Request;
 }) {
   const formData = await request.formData();
-  const updates = Object.fromEntries(formData);
+  const newContact = Object.fromEntries(formData);
 
   // post the json to the api /contacts/:contactId
-  console.log("updates = ", updates);
-  await fetch(`/api/contacts/${params.contactId}`, {
+  console.log("updates = ", newContact);
+  await fetch(`/api/contacts/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(updates),
+    body: JSON.stringify(newContact),
   });
 
-  return redirect(`/contacts/${params.contactId}`);
+  return redirect(`/`);
 }

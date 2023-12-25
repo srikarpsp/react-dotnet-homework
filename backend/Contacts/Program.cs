@@ -54,4 +54,12 @@ app.MapPost("/contacts/{id}", async (ContactContext context, HttpContext httpCon
     return Results.NotFound("Contact not found.");
 });
 
+app.MapDelete("/contacts/{id}", async (ContactContext context, int id) =>
+{
+    var contactToDelete = context.Contacts.FirstOrDefault(c => c.Id == id);
+    context.Contacts.Remove(contactToDelete);
+    await context.SaveChangesAsync();
+    return Results.Ok("Contact Deleted successfully.");
+});
+
 app.Run();

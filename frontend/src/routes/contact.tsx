@@ -1,4 +1,4 @@
-import { Form, useLoaderData } from "react-router-dom";
+import { Form, redirect, useLoaderData } from "react-router-dom";
 import { ContactType } from "../types";
 
 export default function Contact() {
@@ -65,7 +65,7 @@ export default function Contact() {
           </Form>
           <Form
             method="post"
-            action="destroy"
+            action="delete"
             onSubmit={(event) => {
               if (
                 !confirm(
@@ -82,6 +82,21 @@ export default function Contact() {
       </div>
     </div>
   );
+}
+interface ActionParams {
+  contactId: number;
+}
+
+export async function deleteAction({
+  params,
+}: {
+  params: ActionParams;
+}) {
+  await fetch(`/api/contacts/${params.contactId}`, {
+    method: "DELETE",
+  });
+
+  return redirect(`/`);
 }
 
 export async function loader({ params }: { params: { contactId: string } }) {

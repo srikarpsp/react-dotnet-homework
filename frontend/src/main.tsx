@@ -7,7 +7,7 @@ import ErrorPage from "./error-page";
 
 // Import routes and loaders
 import Index, { loader as indexLoader } from "./routes";
-import Contact, { loader as contactLoader } from "./routes/contact";
+import Contact, { loader as contactLoader, deleteAction } from "./routes/contact";
 import EditContact, { action as editAction } from "./routes/edit";
 import AddContact, {action as addAction} from "./routes/add-contact";
 
@@ -37,6 +37,10 @@ const router = createBrowserRouter([
         loader: contactLoader,
         action: editAction,
         element: <EditContact />,
+      },
+      {
+        path: "contacts/:contactId/delete",
+        action: deleteAction,
       },
     ],
   },

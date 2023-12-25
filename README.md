@@ -1,5 +1,9 @@
 # Welcome
 
+Application Home Page Screenshot Initially:
+
+![HomeScreen](https://github.com/srikarpsp/react-dotnet-homework/assets/39147428/3fbd5d19-b3ae-4eb5-9b45-9e64797737df)
+
 This is a simple application to manage your contacts. It's built using React, ASP.NET Core and SQL Server.
 
 CLHbid.com will be using this application in our technical screening process. We'll ask you to make some changes to the

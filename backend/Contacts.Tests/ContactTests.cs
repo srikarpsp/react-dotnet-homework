@@ -21,7 +21,30 @@ public class ContactTests
         Assert.Equal("avatar.png", contact.Avatar);
         Assert.Equal("@test", contact.Twitter);
         Assert.Equal("Test notes", contact.Notes);
-        Assert.Equal("Test Address", contact.Address)
+        Assert.Equal("Test Address", contact.Address);
+    }
+
+    [Fact]
+    public void Constructor_Sets_All_Properties_Null()
+    {
+        var contact = new Contact(null, null, null, null, null, null,null);
+        Assert.Null(contact.Name);
+        Assert.Null(contact.Email);
+        Assert.Null(contact.Phone);
+        Assert.Null(contact.Avatar);
+        Assert.Null(contact.Twitter);
+        Assert.Null(contact.Notes);
+        Assert.Null( contact.Address);
+    }
+
+    [Fact]
+    public void Constructor_Checks_Default_Values()
+    {
+        var contact = new Contact();
+        Assert.Equal("email@demo.com", contact.Email);
+        Assert.Equal("1234567890", contact.Phone);
+        Assert.Equal("/avatars/headshot_1.png", contact.Avatar);
+        Assert.Equal("TwitterHandle", contact.Twitter);
     }
     
     [Fact]

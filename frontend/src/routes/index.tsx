@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import { ContactType } from "../types";
 
 import Contact from "../components/Contact";
+import PrimaryAction from "../components/PrimaryAction";
 
 export default function Index() {
     const { contacts } = useLoaderData() as { contacts: ContactType[] };
@@ -17,9 +18,9 @@ export default function Index() {
             <p>No contacts found.</p>
           )}
       
-          <a href="contacts/add-contact" className="inline-block px-4 py-2 bg-green-500 text-white rounded-md">
-            Add a new contact
-          </a>
+      <PrimaryAction href="contacts/add-contact">
+        Add a new contact
+      </PrimaryAction>
         </div>
       );
 }

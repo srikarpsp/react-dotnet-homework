@@ -1,6 +1,8 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import { ContactType } from "../types";
 
+import PrimaryAction from "../components/PrimaryAction";
+
 export default function EditContact() {
   const { contact } = useLoaderData() as { contact: ContactType };
 

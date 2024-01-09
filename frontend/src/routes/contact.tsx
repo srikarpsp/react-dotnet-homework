@@ -1,5 +1,6 @@
 import { Form, redirect, useLoaderData } from "react-router-dom";
 import { ContactType } from "../types";
+import PrimaryFormButton from "../components/PrimaryFormButton";
 
 export default function Contact() {
     const { contact } = useLoaderData() as { contact: ContactType };
@@ -61,8 +62,9 @@ export default function Contact() {
 
         <div className="flex space-x-2 rounded-md bg-cyan-100 p-2 mt-2">
           <Form action="edit">
-            <button type="submit">Edit</button>
+            <PrimaryFormButton>Edit</PrimaryFormButton>
           </Form>
+          
           <Form
             method="post"
             action="delete"
@@ -76,7 +78,7 @@ export default function Contact() {
               }
             }}
           >
-            <button type="submit">Delete</button>
+            <PrimaryFormButton>Delete</PrimaryFormButton>
           </Form>
         </div>
       </div>
@@ -98,6 +100,7 @@ export async function deleteAction({
 
   return redirect(`/`);
 }
+
 
 export async function loader({ params }: { params: { contactId: string } }) {
     console.log("params = ", params);
